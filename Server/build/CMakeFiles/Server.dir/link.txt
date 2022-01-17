@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wpedantic -Wextra -Werror -g   CMakeFiles/Server.dir/main.c.o CMakeFiles/Server.dir/utils/utils.c.o CMakeFiles/Server.dir/service/service.c.o CMakeFiles/Server.dir/endpoints/server/server.c.o CMakeFiles/Server.dir/endpoints/client/client.c.o CMakeFiles/Server.dir/endpoints/public/public.c.o  -o Server 

@@ -1,0 +1,3 @@
+/home/konrad/PSIW/Projekt/Server/build/CMakeFiles/rebuild_cache.dir
+/home/konrad/PSIW/Projekt/Server/build/CMakeFiles/edit_cache.dir
+/home/konrad/PSIW/Projekt/Server/build/CMakeFiles/Server.dir

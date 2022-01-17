@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wpedantic -Wextra -Werror -g   CMakeFiles/Client.dir/main.c.o CMakeFiles/Client.dir/utils/utils.c.o  -o Client 

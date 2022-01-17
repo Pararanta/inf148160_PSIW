@@ -1,0 +1,22 @@
+SERWER:
+    Kolejki inicjalizowane przez serwer:
+        - kolejka wewnętrzna - służy do przekazywania poleceń z procesów nasłuchujących do procesu głównego realizującego zadania
+        - kolejka wewnętrzna odpowiedzi - przekazuje informację o statusie akcji do jej źródła
+        - kolejka publiczna - wykorzystywana przez niezainicjalizowanych klientów do rejestracji
+        - kolejka serwera - służy do odbierania informacji od innych serwerów
+    Kolejki wykorzystywane przez serwer:
+        - kolejki innych serwerów (dla każdego serwera) - przekazujemy na nich informację o akcjach
+        - pary kolejek klientów (2 dla każdego klienta) - służą do komunikacji z klientami
+
+Informacje o funkcjach realizowanych przez poszczególne kolejki można znaleźć nagłówkach odpowiednich endpointów i servicu:
+    Serwer/service/service.h - kolejka wewnętrzna
+    Serwer/endpoints/public/public.h - kolejka publiczna
+    Serwer/endpoints/server/server.h - kolejka serwera
+    Serwer/endpoints/client/client.h - kolejki klientów
+
+KLIENT:
+    Kolejki inicjalizowane przez klienta:
+        - kolejka zapytań - wysyłane po niej są zapytania do serwera, oraz mechanizm heartbeat
+        - kolejka odpowiedzi - odpierane są na niej wiadomości od serwera
+    Kolejki wykorzystywane przez klienta:
+        - kolejka publiczna - rejestrujemy się na serwerze do którego należy ta kolejka

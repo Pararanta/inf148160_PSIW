@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/konrad/PSIW/Projekt/Client/main.c
+stdio.h
+-
+stdlib.h
+-
+types/types.h
+/home/konrad/PSIW/Projekt/Client/types/types.h
+utils/utils.h
+/home/konrad/PSIW/Projekt/Client/utils/utils.h
+string.h
+/home/konrad/PSIW/Projekt/Client/string.h
+sys/prctl.h
+-
+signal.h
+-
+unistd.h
+-
+
+/home/konrad/PSIW/Projekt/Client/types/types.h
+sys/ipc.h
+/home/konrad/PSIW/Projekt/Client/types/sys/ipc.h
+sys/types.h
+/home/konrad/PSIW/Projekt/Client/types/sys/types.h
+sys/msg.h
+-
+
+/home/konrad/PSIW/Projekt/Client/utils/utils.h
+sys/ipc.h
+/home/konrad/PSIW/Projekt/Client/utils/sys/ipc.h
+sys/types.h
+/home/konrad/PSIW/Projekt/Client/utils/sys/types.h
+sys/msg.h
+-
+

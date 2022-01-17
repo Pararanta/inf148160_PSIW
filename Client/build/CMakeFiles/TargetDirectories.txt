@@ -1,0 +1,3 @@
+/home/konrad/PSIW/Projekt/Client/build/CMakeFiles/rebuild_cache.dir
+/home/konrad/PSIW/Projekt/Client/build/CMakeFiles/edit_cache.dir
+/home/konrad/PSIW/Projekt/Client/build/CMakeFiles/Client.dir

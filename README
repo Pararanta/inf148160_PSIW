@@ -1,0 +1,38 @@
+INSTRUKCJA KOMPILACJI:
+    Oba podprojekty zawierają CMakeLists.txt
+
+INSTRUKCJA URUCHOMIENIA:
+    SERWER:
+        serwer uruchamiamy składnią
+            internal_server_key_file internal_server_project_char internal_server_response_key_file internal_server_response_project_char server_endpoint_key_file server_endpoint_project_char public_endpoint_key_file public_endpoint_project_char
+        a następnie key_file i key char dla każdego podłączonego serwera
+        PRZYKŁAD uruchomienia dwóch współpracujących serwerów z katalogu Server/build
+            ./Server ./Server 1 ./Server 2 ./Server 3 ./Server 4 ./Server 7
+            ./Server ./Server 5 ./Server 6 ./Server 7 ./Server 8 ./Server 3
+        Decyzja o przyjmowaniu argumentów zamiast pliku konfigurayjnego była podyktowana tym, że łatwiej wrzucić plik na argumenty poleceniem xargs niż argumenty do pliku
+
+    KLIENT:
+        klienta uruchamiamy składnią
+            server_public_key_file server_public_project_char this_client_key_file this_client_project_char this_client_key_file2 this_client_project_char2 user_name
+        PRZYKŁAD uruchomienia dwóch klientów połączonych każdy do jednego z powyższych serwerów z katalogu Client/build
+            ./Client ../../Server/build/Server 4 ./Client 1 ./Client 2 user_1
+            ./Client ../../Server/build/Server 8 ./Client 3 ./Client 4 user_2
+
+OPIS PLIKÓW:
+    SERWER:
+        main.c - inicjalizuje stan początkowy
+        utils/utils.c - zawiera funkcje użytkowe jak np znajdowanie id użytkownika po nazwie
+        service/service.c - obsługuje żądania
+        endpoints/public/public.c - tworzy proces nasłuchujący nowych użytkowników i forwardujący ich do service
+        endpoints/server/server.c - jest wykonywany dla każdego współparcującego serwera i tworzy proces nasłuchujący informacji od innych serwerów
+        endpoints/client/client.c - jest wykonywany dla każdego klienta lokalnego i tworzy procesy nasłuchujące jego żądań i przekierowujęce je do service, a także proces odpowiadający za pilnowanie heartbeatu, który deinicjalizuje klienta jeśli ten nie odpowie w odpowiednim czasie
+    KLIENT:
+        main.c:
+            - inicjalizuje i łączy z serwerem klienta
+            - tworzy proces nasłuchujący i wyświetlający informacje od serwera
+            - tworzy proces odpowiadający za heartbeat
+            - czeka na komendy użytkownika i wysyła je do połączonego serwera
+
+NOTA:
+    Uruchomienie obu programu z niewystarczającą liczbą argumentów wyrzuci informacje o wymaganych argumentach.
+    Uruchomienie klienta wyświetli listę dostępnych komend 
